@@ -3,7 +3,7 @@ AWS.config.region = process.env.AWS_REGION;
 var ses = new AWS.SES({region: 'us-east-1'});
 
 var main = function(event, context, callback) {
-  console.log('Received event:', JSON.stringify(event, null, 2));
+  //console.log('Received event:', JSON.stringify(event, null, 2));
 
   if (event.hasOwnProperty("Records")) {
     for (var i = 0; i < event.Records.length; i++) {
