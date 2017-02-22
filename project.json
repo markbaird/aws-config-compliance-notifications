@@ -1,0 +1,12 @@
+{
+  "name": "aws-config-notification",
+  "description": "AWS Config Compliance Notifications",
+  "nameTemplate": "{{.Function.Name}}",
+  "defaultEnvironment": "dev",
+  "memory": 512,
+  "timeout": 20,
+  "runtime": "nodejs4.3",
+  "hooks": {
+    "build": "npm install --production"
+  }
+}

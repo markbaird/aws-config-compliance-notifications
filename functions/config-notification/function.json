@@ -1,0 +1,10 @@
+{
+  "description": "Config Rule compliance change notifications",
+  "runtime": "nodejs4.3",
+  "memory": 512,
+  "timeout": 120,
+  "environment": {
+    "EMAILS": "YOUR_EMAIL_HERE",
+    "FROM": "YOUR_FROM_EMAIL_HERE"
+  }
+}
