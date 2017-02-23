@@ -9,7 +9,8 @@ Lambda function to send notification emails when the compliance status of an AWS
 - AWS Config notifications streaming to an SNS topic.
 - [AWS SES service](https://aws.amazon.com/ses/) enabled in your AWS account 
     and out of [sandbox mode](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html)
-- An AWS IAM Lambda execution role with the appropriate permissions (see below).    
+- An [AWS IAM Lambda execution role](http://docs.aws.amazon.com/lambda/latest/dg/with-s3-example-create-iam-role.html) 
+    with the appropriate permissions (see below). 
    
 ## Setup:
 - Check out this project
