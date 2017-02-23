@@ -9,13 +9,37 @@ Lambda function to send notification emails when the compliance status of an AWS
 - AWS Config notifications streaming to an SNS topic.
 - [AWS SES service](https://aws.amazon.com/ses/) enabled in your AWS account 
     and out of [sandbox mode](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html)
+- An AWS IAM Lambda execution role with the appropriate permissions (see below).    
    
 ## Setup:
 - Check out this project
 - Modify the `FROM` and `EMAILS` Lambda environment variables in `function.json`. `FROM` should be the 
     from address you want your notification emails to come from. `EMAILS` should be a semicolon separated list
     of email addresses to send notifications to.
+- Modify the `role` setting in `function.json` to point to your AWS IAM Lambda execution role with the appropriate settings.    
 - Deploy the Lambda function to your AWS account using the `apex` command line tool.
 - In the AWS SNS console, add the new Lambda function as a subscription to the SNS topic that AWS Config
     sends notifications to.
-   
+    
+## Example IAM Lambda Execution Role:
+```JSON
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    },
+    {
+       "Effect": "Allow",
+       "Action": ["ses:SendEmail", "ses:SendRawEmail"],
+       "Resource":"*"
+     }
+  ]
+}    
+```   

@@ -3,6 +3,7 @@
   "runtime": "nodejs4.3",
   "memory": 512,
   "timeout": 120,
+  "role": "YOUR_IAM_ROLE_ARN_HERE",
   "environment": {
     "FROM": "YOUR_FROM_EMAIL_HERE",
     "EMAILS": "YOUR_EMAIL_HERE"
