@@ -18,7 +18,7 @@ Lambda function to send notification emails when the compliance status of an AWS
     from address you want your notification emails to come from. `EMAILS` should be a semicolon separated list
     of email addresses to send notifications to.
 - Modify the `role` setting in `function.json` to point to your AWS IAM Lambda execution role with the appropriate settings. The 
-    value should be the IAM role ARN.
+    value should be the IAM role's ARN.
 - Deploy the Lambda function to your AWS account using the `apex` command line tool.
 - In the AWS SNS console, add the new Lambda function as a subscription to the SNS topic that AWS Config
     sends notifications to.
@@ -39,7 +39,10 @@ Lambda function to send notification emails when the compliance status of an AWS
     },
     {
        "Effect": "Allow",
-       "Action": ["ses:SendEmail", "ses:SendRawEmail"],
+       "Action": [
+         "ses:SendEmail", 
+         "ses:SendRawEmail"
+       ],
        "Resource":"*"
      }
   ]
